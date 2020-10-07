@@ -102,7 +102,7 @@ widgets/
 |- filmModel.dart
 ```
 
-### Models
+### Pages
 
 
 ```
