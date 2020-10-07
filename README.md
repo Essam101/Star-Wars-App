@@ -112,6 +112,11 @@ widgets/
 |- splashScreen.dart
 ```
 
+## To download the application for Android
+
+```
+http://www.mediafire.com/file/nym6kvr67m7tezg/app-release.apk/file
+```
 
 
 
