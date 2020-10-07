@@ -88,7 +88,7 @@ lib/
 This directory contains all the application level constants. 
 
 ```
-constants/
+Constants/
 |- constant.dart
 ```
 
@@ -97,7 +97,7 @@ constants/
 
 
 ```
-widgets/
+Models/
 |- caractersModel.dart
 |- filmModel.dart
 ```
@@ -106,7 +106,7 @@ widgets/
 
 
 ```
-widgets/
+Pages/
 |- characterDetailsScreen.dart
 |- characterScreen.dart
 |- splashScreen.dart
