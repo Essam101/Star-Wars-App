@@ -59,11 +59,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
           centerTitle: true,
           title: Text(widget.result.name),
         ),
-        body: isLoading
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : Padding(
+        body: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
@@ -229,7 +225,11 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                             ),
                           ],
                         ),
-                        child: Column(
+                        child:isLoading
+                            ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                            :  Column(
                           children: [
                             SizedBox(
                               height: 10,
