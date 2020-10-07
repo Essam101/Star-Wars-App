@@ -78,7 +78,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   // Return the total count of items
   int _totalItemsGetter(PagesData page) => page.totalCount;
 
-  // Return the list of food items
+  // Return the list of Result
   List<Result> _pageItemsGetter(PagesData page) => page.characterObj;
 
   // Build a list tile for an item
