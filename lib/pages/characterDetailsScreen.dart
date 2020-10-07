@@ -1,13 +1,12 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:star_wars/constants/constant.dart';
 import 'package:star_wars/models/caractersModel.dart';
 import 'package:star_wars/models/filmModel.dart';
 
-import '../constant.dart';
 
 class CharacterDetailsScreen extends StatefulWidget {
   static String id = "/characterDetails";
