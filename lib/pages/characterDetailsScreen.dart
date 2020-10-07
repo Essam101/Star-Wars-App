@@ -7,15 +7,15 @@ import 'package:star_wars/constants/constant.dart';
 import 'package:star_wars/models/caractersModel.dart';
 import 'package:star_wars/models/filmModel.dart';
 
-
 class CharacterDetailsScreen extends StatefulWidget {
   static String id = "/characterDetails";
   final Result result;
+
   const CharacterDetailsScreen({Key key, this.result}) : super(key: key);
+
   @override
   _CharacterDetailsScreenState createState() => _CharacterDetailsScreenState();
 }
-
 
 class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
   FilmModel filmModel;
@@ -68,7 +68,16 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: 5,
+                    ),
+                    Image.asset(
+                      widget.result.gender == "female"
+                          ? "images/woman.png"
+                          : "images/man.png",
+                      height: height / 7,
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,

@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     splashTime().then((status) {
-      Navigator.pushNamed(context, CharactersScreen.id);
+      Navigator.pushReplacementNamed(context, CharactersScreen.id);
     });
   }
 
