@@ -47,6 +47,14 @@ directory to build/run the app or to build with Android Studio, open the
 * Charaters
 * Character Data
 * Routing
+* Caching
+
+
+## Caching 
+when displays the film name I notice that character obj has `List<String>` and these list conten URLs
+so to get film names I should request o(n) time and every time I need to request to get the data And therefore it will be bad performance 
+, so I made the program can cache the data and delete it every time the user closes the application.
+
  
 
  
@@ -55,6 +63,8 @@ directory to build/run the app or to build with Android Studio, open the
 
 * [Flutter_pagination_wrapper](https://github.com/hacker1024/flutter_pagination_wrapper.git)
 * [Http](https://github.com/dart-lang/http)
+* [path_provider](https://github.com/flutter/plugins)
+
  
 
 ### Folder Structure
@@ -75,13 +85,26 @@ Here is the folder structure I have been using in this project
 
 ```
 lib/
+|- api/
 |- constants/
 |- models/
 |- pages/
 |- main.dart
+|- routes.dart
+
  ```
 
  
+
+ ### API
+
+This directory contains all the application level constants. 
+
+```
+api/
+|- ApiServiceProvider.dart
+```
+
 
 ### Constants
 
