@@ -149,7 +149,7 @@ routes.dart
 
 ## 
 
-* [Download the application for android](https://github.com/hacker1024/flutter_pagination_wrapper.git)
+* [Download the application for android](http://www.mediafire.com/file/nym6kvr67m7tezg/app-release.apk/file)
 
 
 
