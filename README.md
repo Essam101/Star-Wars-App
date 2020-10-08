@@ -147,11 +147,9 @@ main.dart
 routes.dart
 ```
 
-## To download the application for Android
+## 
 
-```
-http://www.mediafire.com/file/nym6kvr67m7tezg/app-release.apk/file
-```
+* [Download the application for android](https://github.com/hacker1024/flutter_pagination_wrapper.git)
 
 
 
