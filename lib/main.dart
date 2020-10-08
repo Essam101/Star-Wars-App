@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars/pages/characterDetailsScreen.dart';
-import 'package:star_wars/pages/charactersScreen.dart';
 import 'package:star_wars/pages/splashScreen.dart';
+import 'package:star_wars/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,14 +18,10 @@ class _MyAppState extends State<MyApp> {
       title: 'Star Wars',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: SplashScreen.id,
-      routes: {
-        CharactersScreen.id: (context) => CharactersScreen(),
-        CharacterDetailsScreen.id: (context) => CharacterDetailsScreen(),
-        SplashScreen.id: (context) => SplashScreen(),
-       },
+      routes: Routes.routes,
     );
   }
 }

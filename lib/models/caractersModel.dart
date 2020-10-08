@@ -1,3 +1,4 @@
+// Character data Model
 class CharacterModel {
   int count;
   String next;

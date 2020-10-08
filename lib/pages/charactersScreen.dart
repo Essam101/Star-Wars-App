@@ -14,7 +14,7 @@ class CharactersScreen extends StatefulWidget {
 
 class _CharactersScreenState extends State<CharactersScreen>
     with WidgetsBindingObserver {
-  ApiServiceProvider apiServiceProvider =new ApiServiceProvider();
+  ApiServiceProvider apiServiceProvider = new ApiServiceProvider();
   CharacterModel charactersModel;
   final _key = GlobalKey<PaginatorState<PagesData, dynamic>>();
 
@@ -35,11 +35,12 @@ class _CharactersScreenState extends State<CharactersScreen>
     super.didChangeAppLifecycleState(state);
     switch (state) {
       case AppLifecycleState.paused:
-        print('paused state');
         break;
       case AppLifecycleState.resumed:
-        print('resumed state');
         break;
+      case AppLifecycleState.detached:
+        break;
+      // clearing the cache when inactive the application
       case AppLifecycleState.inactive:
         await apiServiceProvider.deleteCacheDir();
         break;
@@ -77,6 +78,7 @@ class _CharactersScreenState extends State<CharactersScreen>
     );
   }
 
+  // Fetching the data and manage the pagination
   Future<PagesData> _pageLoadFuture(int pageNumber) async {
     try {
       charactersModel =

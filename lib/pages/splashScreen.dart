@@ -19,7 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  Future<bool> splashTime() async {
+  // splash screen time
+  splashTime() async {
     await Future.delayed(Duration(milliseconds: 3000), () {});
   }
 

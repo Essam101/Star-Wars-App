@@ -1,6 +1,7 @@
 import 'dart:io';
 
 class Constant{
+  // Check the status of the Internet connection
   static Future<bool> isInternetAvailable() async {
     try {
       final result = await InternetAddress.lookup('google.com');

@@ -16,22 +16,21 @@ class CharacterDetailsScreen extends StatefulWidget {
 }
 
 class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
+  ApiServiceProvider apiServiceProvider = new ApiServiceProvider();
   List<String> filmName = [];
   bool isLoading = false;
   bool isInternetAvailable = false;
   FilmModel filmModel;
-  ApiServiceProvider apiServiceProvider = new ApiServiceProvider();
 
   @override
   void initState() {
     super.initState();
-
     callApi(widget.result.films);
   }
 
   callApi(List<String> urls) async {
     isLoading = true;
-    //Check internet status
+    // Check internet status, and call the API to Fetch and cache the data
     isInternetAvailable = await Constant.isInternetAvailable();
     if (isInternetAvailable) {
       for (int i = 0; i < urls.length; i++) {
