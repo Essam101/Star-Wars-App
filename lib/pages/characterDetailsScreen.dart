@@ -48,9 +48,12 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.yellow, //change your color here
+        ),
         backgroundColor: Color(0xFF1C1E22),
         centerTitle: true,
-        title: Text(widget.result.name),
+        title: Text(widget.result.name, style: TextStyle(color: Colors.yellow)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -199,10 +202,10 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
             ),
             Expanded(
               child: Container(
-                width: width / 1.1,
+                width: double.infinity,
                 height: height / 3,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Color(0xFF1C1E22),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
@@ -228,9 +231,11 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                                 height: 10,
                               ),
                               Text(
-                                "Films",
+                                "FILMS",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -243,14 +248,16 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                                     filmName.length,
                                     (index) {
                                       return Container(
-                                        alignment: Alignment.topCenter,
+                                        alignment: Alignment.center,
                                         padding:
-                                            EdgeInsets.only(left: 8, right: 8),
+                                            EdgeInsets.only(left: 4, right: 4),
                                         child: InputChip(
                                           label: Text(
                                             filmName[index],
                                             style: TextStyle(
-                                                fontWeight: FontWeight.bold),
+                                                fontSize: width / 30,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black),
                                           ),
                                         ),
                                       );
@@ -262,7 +269,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                           )
                         : Center(
                             child:
-                                Text('There was an error fetching the data.'),
+                                Text('There was an error fetching the data.',style: TextStyle(color: Colors.white),),
                           ),
               ),
             )

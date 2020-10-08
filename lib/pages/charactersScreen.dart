@@ -50,10 +50,11 @@ class _CharactersScreenState extends State<CharactersScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF1C1E22),
       appBar: AppBar(
         backgroundColor: Color(0xFF1C1E22),
         centerTitle: true,
-        title: Text('Characters'),
+        title: Text('Characters',style: TextStyle(color: Colors.yellow),),
       ),
       body: RefreshIndicator(
         onRefresh: _onRefresh,
@@ -154,7 +155,7 @@ class _CharactersScreenState extends State<CharactersScreen>
         ),
         Align(
           alignment: Alignment.center,
-          child: Text('There was an error fetching the data.'),
+          child: Text('There was an error fetching the data.',style: TextStyle(color: Colors.white),),
         ),
       ],
     );
