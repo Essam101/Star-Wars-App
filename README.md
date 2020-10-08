@@ -135,6 +135,18 @@ Pages/
 |- splashScreen.dart
 ```
 
+### Main.dart
+
+```
+main.dart
+```
+
+### Routes.dart
+
+```
+routes.dart
+```
+
 ## To download the application for Android
 
 ```
