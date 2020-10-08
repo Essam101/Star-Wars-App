@@ -1,128 +1,108 @@
-import 'dart:convert';
+class CharacterModel {
+  int count;
+  String next;
+  String previous;
+  List<Results> results;
 
-CharactersModel charactersModelFromJson(String str) =>
-    CharactersModel.fromJson(json.decode(str));
+  CharacterModel({this.count, this.next, this.previous, this.results});
 
-String charactersModelToJson(CharactersModel data) =>
-    json.encode(data.toJson());
+  CharacterModel.fromJson(Map<String, dynamic> json) {
+    count = json['count'];
+    next = json['next'] == null ? "" : json['next'];
+    previous = json['previous'] == null ? "" : json['previous'];
+    if (json['results'] != null) {
+      results = new List<Results>();
+      json['results'].forEach((v) {
+        results.add(new Results.fromJson(v));
+      });
+    }
+  }
 
-class CharactersModel {
-  CharactersModel({
-    this.count,
-    this.next,
-    this.previous,
-    this.results,
-  });
-
-  final int count;
-  final String next;
-  final String previous;
-  final List<Result> results;
-
-  factory CharactersModel.fromJson(Map<String, dynamic> json) =>
-      CharactersModel(
-        count: json["count"] == null ? 0 : json["count"],
-        next: json["next"] == null ? "" : json["next"],
-        previous: json["previous"] == null ? "" : json["previous"],
-        results: json["results"] == null
-            ? null
-            : List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "count": count == null ? 0 : count,
-        "next": next == null ? "" : next,
-        "previous": previous == null ? "" : previous,
-        "results": results == null
-            ? null
-            : List<dynamic>.from(results.map((x) => x.toJson())),
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['count'] = this.count;
+    data['next'] = this.next == null ? "" : this.next;
+    data['previous'] = this.previous == null ? "" : this.previous;
+    if (this.results != null) {
+      data['results'] = this.results.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
-class Result {
-  Result({
-    this.name,
-    this.height,
-    this.mass,
-    this.hairColor,
-    this.skinColor,
-    this.eyeColor,
-    this.birthYear,
-    this.gender,
-    this.homeworld,
-    this.films,
-    this.species,
-    this.vehicles,
-    this.starships,
-    this.created,
-    this.edited,
-    this.url,
-  });
+class Results {
+  String name;
+  String height;
+  String mass;
+  String hairColor;
+  String skinColor;
+  String eyeColor;
+  String birthYear;
+  String gender;
+  String homeworld;
+  List<String> films;
+  List<String> species;
+  List<String> vehicles;
+  List<String> starships;
+  String created;
+  String edited;
+  String url;
 
-  final String name;
-  final String height;
-  final String mass;
-  final String hairColor;
-  final String skinColor;
-  final String eyeColor;
-  final String birthYear;
-  final String gender;
-  final String homeworld;
-  final List<String> films;
-  final List<String> species;
-  final List<String> vehicles;
-  final List<String> starships;
-  final DateTime created;
-  final DateTime edited;
-  final String url;
+  Results(
+      {this.name,
+      this.height,
+      this.mass,
+      this.hairColor,
+      this.skinColor,
+      this.eyeColor,
+      this.birthYear,
+      this.gender,
+      this.homeworld,
+      this.films,
+      this.species,
+      this.vehicles,
+      this.starships,
+      this.created,
+      this.edited,
+      this.url});
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
-        name: json["name"] == null ? "" : json["name"],
-        height: json["height"] == null ? "" : json["height"],
-        mass: json["mass"] == null ? "" : json["mass"],
-        hairColor: json["hair_color"] == null ? "" : json["hair_color"],
-        skinColor: json["skin_color"] == null ? "" : json["skin_color"],
-        eyeColor: json["eye_color"] == null ? "" : json["eye_color"],
-        birthYear: json["birth_year"] == null ? "" : json["birth_year"],
-        gender: json["gender"] == null ? "" : json["gender"],
-        homeworld: json["homeworld"] == null ? "" : json["homeworld"],
-        films: json["films"] == null
-            ? ""
-            : List<String>.from(json["films"].map((x) => x)),
-        species: json["species"] == null
-            ? ""
-            : List<String>.from(json["species"].map((x) => x)),
-        vehicles: json["vehicles"] == null
-            ? ""
-            : List<String>.from(json["vehicles"].map((x) => x)),
-        starships: json["starships"] == null
-            ? ""
-            : List<String>.from(json["starships"].map((x) => x)),
-        created:
-            json["created"] == null ? null : DateTime.parse(json["created"]),
-        edited: json["edited"] == null ? null : DateTime.parse(json["edited"]),
-        url: json["url"] == null ? "" : json["url"],
-      );
+  Results.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    height = json['height'];
+    mass = json['mass'];
+    hairColor = json['hair_color'];
+    skinColor = json['skin_color'];
+    eyeColor = json['eye_color'];
+    birthYear = json['birth_year'];
+    gender = json['gender'];
+    homeworld = json['homeworld'];
+    films = json['films'].cast<String>();
+    species = json['species'].cast<String>();
+    vehicles = json['vehicles'].cast<String>();
+    starships = json['starships'].cast<String>();
+    created = json['created'];
+    edited = json['edited'];
+    url = json['url'];
+  }
 
-  Map<String, dynamic> toJson() => {
-        "name": name == null ? "" : name,
-        "height": height == null ? "" : height,
-        "mass": mass == null ? "" : mass,
-        "hair_color": hairColor == null ? "" : hairColor,
-        "skin_color": skinColor == null ? "" : skinColor,
-        "eye_color": eyeColor == null ? "" : eyeColor,
-        "birth_year": birthYear == null ? "" : birthYear,
-        "gender": gender == null ? "" : gender,
-        "homeworld": homeworld == null ? "" : homeworld,
-        "films": films == null ? "" : List<String>.from(films.map((x) => x)),
-        "species":
-            species == null ? "" : List<String>.from(species.map((x) => x)),
-        "vehicles":
-            vehicles == null ? "" : List<String>.from(vehicles.map((x) => x)),
-        "starships":
-            starships == null ? "" : List<String>.from(starships.map((x) => x)),
-        "created": created == null ? null : created.toIso8601String(),
-        "edited": edited == null ? null : edited.toIso8601String(),
-        "url": url == null ? "" : url,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['height'] = this.height;
+    data['mass'] = this.mass;
+    data['hair_color'] = this.hairColor;
+    data['skin_color'] = this.skinColor;
+    data['eye_color'] = this.eyeColor;
+    data['birth_year'] = this.birthYear;
+    data['gender'] = this.gender;
+    data['homeworld'] = this.homeworld;
+    data['films'] = this.films;
+    data['species'] = this.species;
+    data['vehicles'] = this.vehicles;
+    data['starships'] = this.starships;
+    data['created'] = this.created;
+    data['edited'] = this.edited;
+    data['url'] = this.url;
+    return data;
+  }
 }

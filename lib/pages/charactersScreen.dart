@@ -1,8 +1,7 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_pagination_wrapper/flutter_pagination_wrapper.dart';
-import 'package:http/http.dart';
+import 'package:star_wars/api/ApiServiceProvider.dart';
 import 'package:star_wars/models/caractersModel.dart';
 import 'package:star_wars/pages/characterDetailsScreen.dart';
 
@@ -13,19 +12,38 @@ class CharactersScreen extends StatefulWidget {
   _CharactersScreenState createState() => _CharactersScreenState();
 }
 
-class _CharactersScreenState extends State<CharactersScreen> {
-  CharactersModel charactersModel;
+class _CharactersScreenState extends State<CharactersScreen>
+    with WidgetsBindingObserver {
+  ApiServiceProvider apiServiceProvider =new ApiServiceProvider();
+  CharacterModel charactersModel;
   final _key = GlobalKey<PaginatorState<PagesData, dynamic>>();
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
   }
 
-  //get Characters data
-  getCharacters({pageNumber = 1}) async {
-    var response = await get("https://swapi.dev/api/people/?page=$pageNumber");
-    charactersModel = charactersModelFromJson(utf8.decode(response.bodyBytes));
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    super.didChangeAppLifecycleState(state);
+    switch (state) {
+      case AppLifecycleState.paused:
+        print('paused state');
+        break;
+      case AppLifecycleState.resumed:
+        print('resumed state');
+        break;
+      case AppLifecycleState.inactive:
+        await apiServiceProvider.deleteCacheDir();
+        break;
+    }
   }
 
   @override
@@ -38,7 +56,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
       ),
       body: RefreshIndicator(
         onRefresh: _onRefresh,
-        child: Paginator<PagesData, Result>(
+        child: Paginator<PagesData, Results>(
           key: _key,
           pageLoadFuture: _pageLoadFuture,
           pageErrorChecker: _pageErrorChecker,
@@ -61,7 +79,8 @@ class _CharactersScreenState extends State<CharactersScreen> {
 
   Future<PagesData> _pageLoadFuture(int pageNumber) async {
     try {
-      await getCharacters(pageNumber: pageNumber);
+      charactersModel =
+          await apiServiceProvider.getCharacters(pageNumber: pageNumber);
       return PagesData(
           totalCount: 82,
           characterObj: charactersModel.results.toList(growable: false));
@@ -79,10 +98,10 @@ class _CharactersScreenState extends State<CharactersScreen> {
   int _totalItemsGetter(PagesData page) => page.totalCount;
 
   // Return the list of Result
-  List<Result> _pageItemsGetter(PagesData page) => page.characterObj;
+  List<Results> _pageItemsGetter(PagesData page) => page.characterObj;
 
   // Build a list tile for an item
-  Widget _itemListTileBuilder(BuildContext context, Result result, int index) {
+  Widget _itemListTileBuilder(BuildContext context, Results result, int index) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -154,7 +173,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
 
 class PagesData {
   final totalCount;
-  final List<Result> characterObj;
+  final List<Results> characterObj;
 
   PagesData({this.totalCount, this.characterObj});
 }
