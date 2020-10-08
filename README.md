@@ -51,7 +51,7 @@ directory to build/run the app or to build with Android Studio, open the
 
 
 ## Caching 
-when displays the film name I notice that character obj has `List<String>` and these list conten URLs
+When displays the film name I notice that character obj has `List<String>` and these list conten URLs
 so to get film names I should request o(n) time and every time I need to request to get the data And therefore it will be bad performance 
 , so I made the program can cache the data and delete it every time the user closes the application.
 
