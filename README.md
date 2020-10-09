@@ -2,7 +2,7 @@
 
  
  ## About this App
- The app allows the user to view all the characters in the Star Wars movies , Once the user selects a specific character, he/she will be able to see the following details about the character And also the film's character has acted in.
+ The app allows the user to view all the characters in the Star Wars movies. Once the user selects a specific character, he/she will be able to see the following details about the character And also the film's character has acted in.
 
  ### I use this API to provide the data for the Star Wars movies. 
 
