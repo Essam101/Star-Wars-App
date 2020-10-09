@@ -53,7 +53,8 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
         ),
         backgroundColor: Color(0xFF1C1E22),
         centerTitle: true,
-        title: Text(widget.result.name, style: TextStyle(color: Colors.yellow)),
+        title: Text(widget.result.name,
+            style: TextStyle(color: Colors.yellow, fontFamily: "starWarsFont")),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -64,8 +65,8 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
             ),
             Image.asset(
               widget.result.gender == "female"
-                  ? "images/woman.png"
-                  : "images/man.png",
+                  ? "assets/images/woman.png"
+                  : "assets/images/man.png",
               height: height / 7,
             ),
             SizedBox(
@@ -235,7 +236,8 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
-                                    color: Colors.white),
+                                    color: Colors.yellow,
+                                    fontFamily: "starWarsFont"),
                               ),
                               SizedBox(
                                 height: 20,
@@ -268,8 +270,10 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                             ],
                           )
                         : Center(
-                            child:
-                                Text('There was an error fetching the data.',style: TextStyle(color: Colors.white),),
+                            child: Text(
+                              'There was an error fetching the data.',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
               ),
             )

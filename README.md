@@ -1,10 +1,10 @@
 # Star Wars App
 
  
- ## Goals for this App
- The app allows the user to find all the characters/people in the Star Wars movie.   a list of all characters (people) in the movies. Once the user selects a specific character, he/she will be able to see the following details about the character And also the film's character has acted in.
+ ## About this App
+ The app allows the user to view all the characters in the Star Wars movies , Once the user selects a specific character, he/she will be able to see the following details about the character And also the film's character has acted in.
 
- ### I Use this API to provide me with data for the Star Wars movie 
+ ### I use this API to provide the data for the Star Wars movies. 
 
  ```
  https://swapi.dev/api/
@@ -51,16 +51,16 @@ directory to build/run the app or to build with Android Studio, open the
 ## Star Wars App Features:
 
 * Splash
-* Charaters
+* Characters
 * Character Data
 * Routing
 * Caching
 
 
 ## Caching 
-When displays the film name I notice that character obj has `List<String>` and these list conten URLs
-so to get film names I should loop o(n) time and every time I need to request to get the data And therefore it will be bad performance 
-, so I made the program can cache the data and delete it every time the user closes the application.
+When displaying the film name I noticed that the character obj has `List<String>` and the list contains URLs.
+So, to get the film names I should loop o(n) time and every time I need to request to get the data. Because of this, it will have bad performance. 
+Therefore, I made the program able to cache the data and delete it every time the user closes the application.
 
  
 
@@ -88,7 +88,7 @@ star-wars/
 
 
 ### lib
-Here is the folder structure I have been using in this project
+Here is the folder structure that I have used in this project.
 
 ```
 lib/
@@ -104,9 +104,6 @@ lib/
  
 
  ### API
-
-This directory contains all the application level constants. 
-
 ```
 api/
 |- ApiServiceProvider.dart
@@ -156,7 +153,7 @@ routes.dart
 
 ## 
 
-* [Download the application for android](http://www.mediafire.com/file/nym6kvr67m7tezg/app-release.apk/file)
+* [Download the application for Android](http://www.mediafire.com/file/nym6kvr67m7tezg/app-release.apk/file)
 
 
 

@@ -54,7 +54,10 @@ class _CharactersScreenState extends State<CharactersScreen>
       appBar: AppBar(
         backgroundColor: Color(0xFF1C1E22),
         centerTitle: true,
-        title: Text('Characters',style: TextStyle(color: Colors.yellow),),
+        title: Text(
+          'Characters',
+          style: TextStyle(color: Colors.yellow, fontFamily: "starWarsFont"),
+        ),
       ),
       body: RefreshIndicator(
         onRefresh: _onRefresh,
@@ -118,9 +121,11 @@ class _CharactersScreenState extends State<CharactersScreen>
       child: Card(
         child: ListTile(
           leading: Image.asset(result.gender == "female"
-              ? "images/woman.png"
-              : "images/man.png"),
-          title: Text(result.name),
+              ? "assets/images/woman.png"
+              : "assets/images/man.png"),
+          title: Text(
+            result.name,
+          ),
           subtitle: Text(''),
           isThreeLine: false,
         ),
@@ -155,7 +160,10 @@ class _CharactersScreenState extends State<CharactersScreen>
         ),
         Align(
           alignment: Alignment.center,
-          child: Text('There was an error fetching the data.',style: TextStyle(color: Colors.white),),
+          child: Text(
+            'There was an error fetching the data.',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );

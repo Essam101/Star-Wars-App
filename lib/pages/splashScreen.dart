@@ -26,19 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
           color: Color(0xFF1C1E22),
           width: double.infinity,
           height: double.infinity,
           child: Center(
-            child: Text(
-              "Star Wars",
-              style: TextStyle(
-                  color: Colors.yellow,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
+            child: Image.asset("assets/images/StarWars.png",width: width/2,)
           )),
     );
   }
