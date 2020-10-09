@@ -232,10 +232,9 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
                                 height: 10,
                               ),
                               Text(
-                                "FILMS",
+                                "Films",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
+                                     fontSize: 20,
                                     color: Colors.yellow,
                                     fontFamily: "starWarsFont"),
                               ),
