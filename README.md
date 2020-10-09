@@ -4,7 +4,7 @@
  ## Goals for this App
  The app allows the user to find all the characters/people in the Star Wars movie.   a list of all characters (people) in the movies. Once the user selects a specific character, he/she will be able to see the following details about the character And also the film's character has acted in.
 
- ### I Use this API Is to provide me with data for the Star Wars movie 
+ ### I Use this API to provide me with data for the Star Wars movie 
 
  ```
  https://swapi.dev/api/
