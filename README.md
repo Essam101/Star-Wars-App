@@ -2,7 +2,7 @@
 
  
  ## About this App
- The app allows the user to view all the characters in the Star Wars movies. Once the user selects a specific character, he/she will be able to see the following details about the character And also the film's character has acted in.
+ The app allows the user to view all the characters in the Star Wars movies. Once the user selects a specific character, he/she will be able to see the following details about the character and also the film's character has acted in.
 
  ### I use this API to provide the data for the Star Wars movies. 
 
@@ -59,7 +59,7 @@ directory to build/run the app or to build with Android Studio, open the
 
 ## Caching 
 When displaying the film name I noticed that the character obj has `List<String>` and the list contains URLs.
-So, to get the film names I should loop o(n) time and every time I need to request to get the data. Because of this, it will have bad performance. 
+In order to get the film names I should loop o(n) time and every time I need to request to get the data. Because of this, it will have bad performance. 
 Therefore, I made the program able to cache the data and delete it every time the user closes the application.
 
  
